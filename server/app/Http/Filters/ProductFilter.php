@@ -14,6 +14,7 @@ class ProductFilter extends AbstractFilter
     public const START_DATE = 'start_date';
     public const END_DATE = 'end_date';
     public const SORT_BY = 'sort_by';
+    public const CATEGORY_ID = 'category_id';
 
 
     protected function getCallbacks(): array
@@ -25,7 +26,13 @@ class ProductFilter extends AbstractFilter
             self::START_DATE => [$this, 'start_date'],
             self::END_DATE => [$this, 'end_date'],
             self::SORT_BY => [$this, 'sort_by'],
+            self::CATEGORY_ID => [$this, 'category_id'],
         ];
+    }
+
+    public function category_id(Builder $builder, $value):void
+    {
+        $builder->where('category_id', '=', $value);
     }
 
     public function sort_by(Builder $builder, $value):void
@@ -55,7 +62,9 @@ class ProductFilter extends AbstractFilter
 
     public function search(Builder $builder, $value): void
     {
-        $builder->where('name', 'like', "%{$value}%")
-            ->orWhere('description', 'like', "%{$value}%");
+        $builder->where('name', 'like', "%{$value}%");
+        $builder->Where('description', 'like', "%{$value}%");
     }
+
+
 }

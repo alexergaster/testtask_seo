@@ -12,7 +12,7 @@ class Service
     {
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
 
-        $products = Product::filter($filter)->with('category')->paginate(10);
+        $products = Product::filter($filter)->with('category')->paginate(8);
 
         return ProductCollection::make($products);
     }

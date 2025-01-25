@@ -28,6 +28,7 @@ class FilterRequest extends FormRequest
             'end_date' => 'string|nullable',
             'sort_by' => 'string|nullable',
             'search' => 'string|nullable',
+            'category_id' => 'string|nullable',
         ];
     }
 }

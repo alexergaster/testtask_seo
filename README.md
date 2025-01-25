@@ -28,10 +28,11 @@ composer install
 cd server
 php artisan migrate
 ```
+### Іспортувати дані в БД з файлу "testtask_seo"
 
 ### Символічні посилання
 
-За необхідності встановити символічі посилання
+Встановити символічі посилання
 ```bash
 php artisan storage:link
 ```
